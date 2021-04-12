@@ -44,17 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MadLib.cs" />
     <Compile Include="MadPicker.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MadPicker.Designer.cs">
       <DependentUpon>MadPicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="MadLib.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MadLib.Designer.cs">
-      <DependentUpon>MadLib.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,8 +68,8 @@
     <EmbeddedResource Include="MadPicker.resx">
       <DependentUpon>MadPicker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MadLib.resx">
-      <DependentUpon>MadLib.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

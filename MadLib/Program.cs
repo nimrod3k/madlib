@@ -16,7 +16,7 @@ namespace MadLib
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MadLib());
+            Application.Run(new MainForm());
         }
     }
 }

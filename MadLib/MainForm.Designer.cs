@@ -1,6 +1,6 @@
 ﻿namespace MadLib
 {
-    partial class MadLib
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.

@@ -1,13 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace MadLib
 {
@@ -45,8 +40,17 @@ namespace MadLib
         /// </summary>
         private void SetupFields(string madLibText)
         {
+            string[] theStringList;
+            string openTag = "<*";
+            string closeTag = "*>";
+            if (!(madLibText.Contains(openTag) && madLibText.Contains(closeTag))) // if does not contain new tags try simple tags
+            {
+                openTag = "<";
+                closeTag = ">";
+            }
+            theStringList = madLibText.Split(new string[] { openTag }, StringSplitOptions.None);
+
             // Split the madlib text on tag beginnings 
-            string[] theStringList = madLibText.Split('<');
             mStrings = new List<string>(theStringList.Length); // A list the size of the number of possible tags to add the replacement words into
             mIndicies = new List<int>(); // keep a list of indicies to keep track of each field
 
@@ -54,9 +58,9 @@ namespace MadLib
             // ToDo: see if there is a better way create these fields
             foreach (string madString in theStringList)
             {
-                if (madString.Contains(">"))
+                if (madString.Contains(closeTag))
                 {
-                    string[] theMadStrings = madString.Split('>');
+                    string[] theMadStrings = madString.Split(new string[] { closeTag }, StringSplitOptions.None);
                     if (theMadStrings.Length > 2)
                     {
                         // Possibly handle it differently and just ignore the additional greater than signs.
