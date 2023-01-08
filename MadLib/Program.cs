@@ -14,6 +14,11 @@ namespace MadLib
         [STAThread]
         static void Main()
         {
+            //NltkNet.Nltk.Init(new List<string>
+            //{
+            //    @"C:\Program Files\IronPython 2.7\Lib",                 // Path to IronPython standard libraries
+            //    @"C:\Program Files\IronPython 2.7\Lib\site-packages",   // Path to IronPython third-party libraries
+            //});
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

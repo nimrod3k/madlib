@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+//using NltkNet;
+using System.Collections.Generic;
 
 namespace MadLib
 {
@@ -114,6 +116,7 @@ namespace MadLib
 
                     // get Context and Madlibify the word and replace it in the list
                     var context = getContext(original, i);
+                    var PoS = getPoS(theWord);
                     var madlibification = madlibify(theWord, context);
                     // If we skip or have an unknown dialog return 
                     if (madlibification == "skip" || madlibification == theWord)
@@ -170,7 +173,7 @@ namespace MadLib
         /// <param name="madWord"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        private string madlibify(string madWord, string context)
+        private string madlibify(string madWord, string context, string PoS = "")
         {
             string res = madWord;
             MadPicker picker = new MadPicker(madWord, context);
@@ -182,6 +185,12 @@ namespace MadLib
             else if (picker.DialogResult == DialogResult.Cancel)
                 res = "cancel";
             return res;
+        }
+
+        private string getPoS(string madWord)
+        {
+            //List<string> theResult = Nltk.Tokenize.WordTokenize(madWord).AsNet;
+            return "noun";
         }
     }
 }
